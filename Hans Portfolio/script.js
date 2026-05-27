@@ -1,4 +1,4 @@
-// Intersection Observer for Premium Scroll In Animations
+// Intersection Observer for Smooth Visual Fade-ins
 const observerOptions = {
     threshold: 0.05
 };
@@ -11,7 +11,6 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Apply transition hooks securely
 document.querySelectorAll('.bento-item, .hero-text, .glass-card').forEach(el => {
     el.style.opacity = "0";
     el.style.transform = "translateY(25px)";
@@ -19,7 +18,6 @@ document.querySelectorAll('.bento-item, .hero-text, .glass-card').forEach(el => 
     observer.observe(el);
 });
 
-// Structural layout styles injected efficiently
 const runtimeStyle = document.createElement('style');
 runtimeStyle.innerHTML = `
     .visible {
@@ -29,7 +27,7 @@ runtimeStyle.innerHTML = `
 `;
 document.head.appendChild(runtimeStyle);
 
-// Contact Submission Logic 
+// Basic Interactive Submit Feedback Handler
 const contactForm = document.getElementById('contactForm');
 if(contactForm) {
     contactForm.addEventListener('submit', (e) => {
