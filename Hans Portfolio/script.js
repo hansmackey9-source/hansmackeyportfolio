@@ -1,6 +1,6 @@
-// Intersection Observer for Smooth Fade-in
+// Intersection Observer for Premium Scroll In Animations
 const observerOptions = {
-    threshold: 0.1
+    threshold: 0.05
 };
 
 const observer = new IntersectionObserver((entries) => {
@@ -11,29 +11,32 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Apply to sections and items
+// Apply transition hooks securely
 document.querySelectorAll('.bento-item, .hero-text, .glass-card').forEach(el => {
     el.style.opacity = "0";
-    el.style.transform = "translateY(30px)";
-    el.style.transition = "all 0.8s ease-out";
+    el.style.transform = "translateY(25px)";
+    el.style.transition = "all 0.6s cubic-bezier(0.16, 1, 0.3, 1)";
     observer.observe(el);
 });
 
-// Custom visible class added via CSS/JS mix
-const style = document.createElement('style');
-style.innerHTML = `
+// Structural layout styles injected efficiently
+const runtimeStyle = document.createElement('style');
+runtimeStyle.innerHTML = `
     .visible {
         opacity: 1 !important;
         transform: translateY(0) !important;
     }
 `;
-document.head.appendChild(style);
+document.head.appendChild(runtimeStyle);
 
-// Magnetic button effect logic (Simplified)
+// Contact Submission Logic 
 const contactForm = document.getElementById('contactForm');
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const btn = contactForm.querySelector('.btn');
-    btn.innerHTML = "Project Received! ✓";
-    btn.style.background = "#22c55e";
-});
+if(contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const btn = contactForm.querySelector('.btn');
+        btn.innerHTML = "Proposal Sent! ✓";
+        btn.style.background = "#22c55e";
+        contactForm.reset();
+    });
+}
